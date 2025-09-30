@@ -1,4 +1,4 @@
-# Upcoming Filter
+# Upcoming Games Tagger
 
 A Playnite extension that automatically tags games with upcoming release dates for easy filtering.
 
@@ -51,7 +51,7 @@ The extension provides several configuration options:
 3. Games with future release dates are automatically tagged
 4. Use Playnite's filter system to filter by the "Upcoming" tag to see only unreleased games
 5. The tags are updated automatically when your library changes (if enabled)
-6. You can manually update via "Extensions" → "Upcoming Filter" → "Update Upcoming Games Tag"
+6. You can manually update via "Extensions" → "Upcoming Games Tagger" → "Update Upcoming Games Tag"
 
 ## Requirements
 

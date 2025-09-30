@@ -3,6 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
     <UseWPF>true</UseWPF>
+    <AssemblyName>UpcomingGamesTagger</AssemblyName>
+    <RootNamespace>UpcomingGamesTagger</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup>

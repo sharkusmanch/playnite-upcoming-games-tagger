@@ -13,11 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace UpcomingFilter
+namespace UpcomingGamesTagger
 {
-    public partial class UpcomingFilterSettingsView : UserControl
+    public partial class UpcomingGamesTaggerSettingsView : UserControl
     {
-        public UpcomingFilterSettingsView()
+        public UpcomingGamesTaggerSettingsView()
         {
             InitializeComponent();
         }

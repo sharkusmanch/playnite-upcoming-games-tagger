@@ -1,8 +1,8 @@
-﻿Id: UpcomingFilter_22b532e7-0caa-4c5a-bacf-3009c4eb7eeb
-Name: Upcoming Filter
+﻿Id: UpcomingGamesTagger_22b532e7-0caa-4c5a-bacf-3009c4eb7eeb
+Name: Upcoming Games Tagger
 Author: sharkusmanch
 Version: 1.0.0
-Module: UpcomingFilter.dll
+Module: UpcomingGamesTagger.dll
 Type: GenericPlugin
 Icon: icon.png
 Description: Automatically tags games with upcoming release dates for easy filtering

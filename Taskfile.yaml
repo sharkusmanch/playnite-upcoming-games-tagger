@@ -13,11 +13,11 @@ tasks:
 
   build:
     cmds:
-    - dotnet build  UpcomingFilter.csproj --configuration Release
+    - dotnet build  UpcomingGamesTagger.csproj --configuration Release
 
   format:
     cmds:
-    - dotnet format  UpcomingFilter.csproj
+    - dotnet format  UpcomingGamesTagger.csproj
 
   pack:
     deps:
@@ -41,4 +41,4 @@ tasks:
 
   restore:
     cmds:
-    - dotnet restore UpcomingFilter.csproj
+    - dotnet restore UpcomingGamesTagger.csproj

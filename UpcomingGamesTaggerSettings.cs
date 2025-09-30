@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UpcomingFilter
+namespace UpcomingGamesTagger
 {
-    public class UpcomingFilterSettings : ObservableObject
+    public class UpcomingGamesTaggerSettings : ObservableObject
     {
         private string tagName = "Upcoming";
         private bool autoUpdateOnLibraryChange = true;
@@ -23,13 +23,13 @@ namespace UpcomingFilter
         public bool ShowNotifications { get => showNotifications; set => SetValue(ref showNotifications, value); }
     }
 
-    public class UpcomingFilterSettingsViewModel : ObservableObject, ISettings
+    public class UpcomingGamesTaggerSettingsViewModel : ObservableObject, ISettings
     {
-        private readonly UpcomingFilter plugin;
-        private UpcomingFilterSettings editingClone { get; set; }
+        private readonly UpcomingGamesTagger plugin;
+        private UpcomingGamesTaggerSettings editingClone { get; set; }
 
-        private UpcomingFilterSettings settings;
-        public UpcomingFilterSettings Settings
+        private UpcomingGamesTaggerSettings settings;
+        public UpcomingGamesTaggerSettings Settings
         {
             get => settings;
             set
@@ -39,13 +39,13 @@ namespace UpcomingFilter
             }
         }
 
-        public UpcomingFilterSettingsViewModel(UpcomingFilter plugin)
+        public UpcomingGamesTaggerSettingsViewModel(UpcomingGamesTagger plugin)
         {
             // Injecting your plugin instance is required for Save/Load method because Playnite saves data to a location based on what plugin requested the operation.
             this.plugin = plugin;
 
             // Load saved settings.
-            var savedSettings = plugin.LoadPluginSettings<UpcomingFilterSettings>();
+            var savedSettings = plugin.LoadPluginSettings<UpcomingGamesTaggerSettings>();
 
             // LoadPluginSettings returns null if no saved data is available.
             if (savedSettings != null)
@@ -54,7 +54,7 @@ namespace UpcomingFilter
             }
             else
             {
-                Settings = new UpcomingFilterSettings();
+                Settings = new UpcomingGamesTaggerSettings();
             }
         }
 
