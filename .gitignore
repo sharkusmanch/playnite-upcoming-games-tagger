@@ -16,8 +16,6 @@ packages/
 *.nupkg
 *.snupkg
 .nuget/
-.nuget/NuGet.Config
-.nuget/packages/
 
 # Logs and test artifacts
 *.log
@@ -43,15 +41,13 @@ Thumbs.db
 ehthumbs.db
 desktop.ini
 
-# Playnite / ApolloSync specific
 # Distribution and raw build artifacts
 .dist*/
 dist/
-# Root-level compiled outputs (should live in bin/ but ignore if present)
-ApolloSync.dll
-ApolloSync.pdb
-ApolloSync.cs.backup
 
-# Generated resources (additional safety; obj/ already ignored)
+# Generated resources
 **/*.baml
 **/*.g.cs
+
+# Claude
+.claude/

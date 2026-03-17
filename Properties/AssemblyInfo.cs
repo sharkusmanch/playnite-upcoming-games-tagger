@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UpcomingFilter")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("UpcomingGamesTagger")]
+[assembly: AssemblyDescription("Automatically tags games with upcoming release dates")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UpcomingFilter")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyProduct("UpcomingGamesTagger")]
+[assembly: AssemblyCopyright("Copyright © 2026 sharkusmanch")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,0 +1,71 @@
+---
+name: "Release"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: robinraju/release-downloader@v1.8
+        id: download_playnite
+        with:
+          repository: "JosefNemec/Playnite"
+          latest: true
+          tarBall: false
+          zipBall: false
+          fileName: "*.7z"
+          out-file-path: ${{ runner.temp }}/playnite
+
+      - name: Extract Playnite
+        run: 7z x ${{ runner.temp }}/playnite/*.7z -o${{ runner.temp }}/playnite
+
+      - run: |
+          dotnet build UpcomingGamesTagger.csproj -c Release
+          ${{ runner.temp }}/playnite/Toolbox.exe pack bin/Release/net462/ dist
+
+      - uses: actions/upload-artifact@v6
+        with:
+          name: artifacts
+          path: |
+            dist/*.pext
+
+  release:
+    name: "Release"
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Get Version
+        id: version
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq '.Version' extension.yaml
+
+      - name: Pull artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: artifacts
+
+      - name: Build release notes from manifest
+        run: |
+          yq -r '.Packages[0].Changelog[] | "- " + .' manifest.yaml > notes.md
+
+      - run: |
+          mv UpcomingGamesTagger_*.pext UpcomingGamesTagger_v${{ steps.version.outputs.result }}.pext
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v${{ steps.version.outputs.result }}" \
+            --title "v${{ steps.version.outputs.result }}" \
+            --notes-file notes.md \
+            UpcomingGamesTagger_v${{ steps.version.outputs.result }}.pext

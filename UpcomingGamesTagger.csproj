@@ -29,11 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Localization\*.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
+    <Content Include="Localization\*.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
   </ItemGroup>
 
 </Project>
