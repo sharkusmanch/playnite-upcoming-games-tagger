@@ -62,7 +62,7 @@ namespace UpcomingGamesTagger
                     {
                         PlayniteApi.Notifications.Add(new NotificationMessage(
                             "upcoming-tag-created",
-                            $"Created '{settings.Settings.TagName}' tag for upcoming games",
+                            string.Format(ResourceProvider.GetString("LOCUpcomingGamesTaggerNotifTagCreated"), settings.Settings.TagName),
                             NotificationType.Info));
                     }
 
@@ -127,7 +127,7 @@ namespace UpcomingGamesTagger
                 // Log and notify about changes
                 if (gamesToAdd.Any() || gamesToRemove.Any())
                 {
-                    var message = $"Updated '{settings.Settings.TagName}' tag: +{gamesToAdd.Count} games, -{gamesToRemove.Count} games";
+                    var message = string.Format(ResourceProvider.GetString("LOCUpcomingGamesTaggerNotifTagUpdated"), settings.Settings.TagName, gamesToAdd.Count, gamesToRemove.Count);
                     logger.Info($"UpcomingGamesTagger: {message}");
 
                     if (settings.Settings.ShowNotifications && (gamesToAdd.Count > 0 || gamesToRemove.Count > 0))
@@ -176,8 +176,8 @@ namespace UpcomingGamesTagger
             {
                 new MainMenuItem
                 {
-                    Description = "Update Upcoming Games Tag",
-                    MenuSection = "@Upcoming Games Tagger",
+                    Description = ResourceProvider.GetString("LOCUpcomingGamesTaggerMenuUpdateTag"),
+                    MenuSection = "@" + ResourceProvider.GetString("LOCUpcomingGamesTaggerMenuSection"),
                     Action = (menuArgs) => {
                         UpdateUpcomingGamesTag();
                     }
