@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">Actualizar etiqueta de próximos juegos</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">Upcoming Games Tagger</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">Etiqueta '{0}' creada para próximos juegos</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">Etiqueta '{0}' actualizada: +{1} juegos, -{2} juegos</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">Configuración de etiquetas</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">Nombre de la etiqueta:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">Actualizar etiqueta automáticamente cuando cambie la biblioteca</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">Mostrar notificaciones cuando se actualice la etiqueta</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">Selección de juegos</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">Incluir juegos sin fecha de lanzamiento</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">Umbral de días (0 = sin límite):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">Solo incluir juegos que se lancen dentro de este número de días</sys:String>
+
+</ResourceDictionary>

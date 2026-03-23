@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">更新即将发售游戏标签</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">即将发售游戏标记器</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">已为即将发售的游戏创建 '{0}' 标签</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">已更新 '{0}' 标签: +{1} 款游戏, -{2} 款游戏</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">标签设置</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">标签名称:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">库变更时自动更新标签</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">标签更新时显示通知</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">游戏筛选</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">包含无发售日期的游戏</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">提前天数阈值 (0 = 不限):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">仅包含在此天数内发售的游戏</sys:String>
+
+</ResourceDictionary>

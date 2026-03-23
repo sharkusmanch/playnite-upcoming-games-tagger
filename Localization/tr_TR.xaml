@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">Yaklaşan Oyunlar Etiketini Güncelle</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">Yaklaşan Oyunlar Etiketleyici</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">Yaklaşan oyunlar için '{0}' etiketi oluşturuldu</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">'{0}' etiketi güncellendi: +{1} oyun, -{2} oyun</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">Etiket Ayarları</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">Etiket Adı:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">Kütüphane değiştiğinde etiketi otomatik güncelle</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">Etiket güncellendiğinde bildirim göster</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">Oyun Seçimi</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">Çıkış tarihi olmayan oyunları dahil et</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">Gün eşiği (0 = sınırsız):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">Yalnızca bu gün sayısı içinde çıkacak oyunları dahil et</sys:String>
+
+</ResourceDictionary>

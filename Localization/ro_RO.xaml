@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">Actualizează eticheta jocurilor viitoare</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">Upcoming Games Tagger</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">Eticheta '{0}' a fost creată pentru jocurile viitoare</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">Eticheta '{0}' a fost actualizată: +{1} jocuri, -{2} jocuri</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">Setări etichetă</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">Numele etichetei:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">Actualizează automat eticheta când biblioteca se modifică</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">Afișează notificări când eticheta este actualizată</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">Selecția jocurilor</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">Include jocuri fără dată de lansare</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">Prag de zile (0 = fără limită):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">Include doar jocurile care se lansează în acest număr de zile</sys:String>
+
+</ResourceDictionary>

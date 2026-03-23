@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">Uppdatera tagg för kommande spel</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">Upcoming Games Tagger</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">Skapade taggen '{0}' för kommande spel</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">Uppdaterade taggen '{0}': +{1} spel, -{2} spel</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">Tagginställningar</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">Taggnamn:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">Uppdatera taggen automatiskt när biblioteket ändras</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">Visa aviseringar när taggen uppdateras</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">Spelurval</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">Inkludera spel utan utgivningsdatum</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">Tröskelvärde i dagar (0 = ingen gräns):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">Inkludera bara spel som släpps inom detta antal dagar</sys:String>
+
+</ResourceDictionary>

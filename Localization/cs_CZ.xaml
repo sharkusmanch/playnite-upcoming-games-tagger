@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">Aktualizovat značku nadcházejících her</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">Upcoming Games Tagger</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">Vytvořena značka '{0}' pro nadcházející hry</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">Aktualizována značka '{0}': +{1} her, -{2} her</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">Nastavení značek</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">Název značky:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">Automaticky aktualizovat značku při změně knihovny</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">Zobrazovat oznámení při aktualizaci značky</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">Výběr her</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">Zahrnout hry bez data vydání</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">Práh ve dnech (0 = bez omezení):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">Zahrnout pouze hry vycházející v tomto počtu dnů</sys:String>
+
+</ResourceDictionary>
