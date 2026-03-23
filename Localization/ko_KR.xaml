@@ -1,0 +1,20 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">출시 예정 게임 태그 업데이트</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">출시 예정 게임 태거</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">출시 예정 게임에 '{0}' 태그를 생성했습니다</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">'{0}' 태그 업데이트: +{1}개, -{2}개</sys:String>
+
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagSettings">태그 설정</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsTagName">태그 이름:</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsAutoUpdate">라이브러리 변경 시 태그 자동 업데이트</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsShowNotifications">태그 업데이트 시 알림 표시</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsGameSelection">게임 선택</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsIncludeNoDate">출시일 미정 게임 포함</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThreshold">기간 임계값 (0 = 제한 없음):</sys:String>
+  <sys:String x:Key="LOCUpcomingGamesTaggerSettingsDaysThresholdHint">이 일수 이내에 출시되는 게임만 포함합니다</sys:String>
+
+</ResourceDictionary>
