@@ -125,9 +125,8 @@ namespace UpcomingGamesTagger
         /// Resolves the tag this plugin owns, creating it when necessary.
         /// </summary>
         /// <returns>True when <see cref="_upcomingTag"/> is usable.</returns>
-        private bool EnsureUpcomingTag()
+        private bool EnsureUpcomingTag(string tagName)
         {
-            var tagName = settings.Settings.TagName;
             var managedTagId = settings.Settings.ManagedTagId;
 
             if (managedTagId.HasValue)
@@ -211,11 +210,20 @@ namespace UpcomingGamesTagger
                     return;
                 }
 
+                // Snapshot the settings this pass depends on. CancelEdit replaces the
+                // whole Settings object under its own lock, so re-reading per game could
+                // evaluate part of the library against pre-cancel values and the rest
+                // against the reverted ones.
+                var currentSettings = settings.Settings;
+                var tagName = currentSettings.TagName;
+                var daysAheadThreshold = currentSettings.DaysAheadThreshold;
+                var includeGamesWithoutReleaseDate = currentSettings.IncludeGamesWithoutReleaseDate;
+
                 try
                 {
                     // Inside the try: resolving the tag can write to the database and to
                     // the settings file, and either can fail.
-                    if (!EnsureUpcomingTag())
+                    if (!EnsureUpcomingTag(tagName))
                     {
                         logger.Error("UpcomingGamesTagger: Could not resolve the managed tag, aborting update");
                         return;
@@ -233,8 +241,8 @@ namespace UpcomingGamesTagger
                         var isUpcoming = UpcomingGameEvaluator.IsUpcoming(
                             game.ReleaseDate,
                             today,
-                            settings.Settings.DaysAheadThreshold,
-                            settings.Settings.IncludeGamesWithoutReleaseDate);
+                            daysAheadThreshold,
+                            includeGamesWithoutReleaseDate);
 
                         if (isUpcoming && !isTagged)
                         {
@@ -268,7 +276,7 @@ namespace UpcomingGamesTagger
 
                         var message = string.Format(
                             ResourceProvider.GetString("LOCUpcomingGamesTaggerNotifTagUpdated"),
-                            settings.Settings.TagName, added, removed);
+                            tagName, added, removed);
                         logger.Info($"UpcomingGamesTagger: {message}");
                         ShowNotification("upcoming-tag-updated", message);
                     }
