@@ -21,8 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
-      issues: read
+      # write, not read: the action posts its review as a pull request comment. With
+      # read it runs to completion, is billed, and silently posts nothing.
+      pull-requests: write
+      issues: write
       id-token: write
 
     steps:
