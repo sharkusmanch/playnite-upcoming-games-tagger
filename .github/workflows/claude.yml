@@ -12,21 +12,30 @@ on:
 
 jobs:
   claude:
+    # claude-code-action already refuses actors without write access, so this gate is
+    # about not spinning up a runner, and not spending the token, on a drive-by
+    # '@claude' mention from any GitHub user. issue_comment runs in the base repo
+    # context with secrets available, so without this the token is exposed to anyone
+    # who can open an issue.
     if: |
+      github.actor == 'sharkusmanch' && (
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+      )
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
-      issues: read
+      # write, not read: the action replies by posting a comment. With read it runs to
+      # completion, is billed, and silently posts nothing.
+      pull-requests: write
+      issues: write
       id-token: write
       actions: read # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 1
 
