@@ -71,8 +71,9 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 This project targets **.NET Framework 4.6.2**. C# 8+ features (nullable reference types, switch expressions, using declarations) are not available.
 
 **Build**
-- Use `MSBuild.exe` (Visual Studio / VS Build Tools), not `dotnet build`. The `dotnet` CLI does not generate `.g.cs` XAML code-behind files for WPF on .NET Framework — the build will succeed but the view won't work.
-- This project uses **SDK-style `.csproj`** (`Microsoft.NET.Sdk.WindowsDesktop`). New `.cs` files are auto-included by default. Do not add `<Compile Include>` entries manually.
+- Use `dotnet build` (as the Taskfile and both workflows do). A clean-tree build was verified on 2026-07-26 to generate `Settings/UpcomingGamesTaggerSettingsView.g.cs` and compile the BAML, so the settings view works. An earlier version of this file claimed `dotnet` could not do this for WPF on .NET Framework; that was wrong. `MSBuild.exe` also works if you have it.
+- This project uses **SDK-style `.csproj`** (`Microsoft.NET.Sdk.WindowsDesktop`). New `.cs` files are auto-included by default. Do not add `<Compile Include>` entries manually. `Tests/**` is explicitly excluded from the plugin project so the test sources don't get compiled into the DLL.
+- Run tests with `task test` or `dotnet test Tests/UpcomingGamesTagger.Tests.csproj`.
 - When adding NuGet packages, only use versions that ship a `net462` (or `net461`/`net45`) target folder. Don't rely on `netstandard2.0` fallbacks — they can silently break at runtime inside Playnite's AppDomain.
 
 **Naming** (Section 5 naming rules take priority over "match existing style" — don't perpetuate violations in new code)

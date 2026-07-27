@@ -6,6 +6,8 @@ A Playnite extension that automatically tags games with upcoming release dates f
 
 - **Automatic Tag Management**: Creates and maintains an "Upcoming" tag (name customizable)
 - **Smart Filtering**: Tags only games with future release dates
+- **Partial Date Support**: Games dated to just a year or a month stay tagged until that period actually ends
+- **Daily Refresh**: Re-evaluates when the date rolls over, without needing a Playnite restart
 - **Configurable Threshold**: Set how far ahead to look for upcoming releases (default: 1 year)
 - **Auto-Update**: Automatically updates tags when your library changes
 - **Manual Control**: Force update the tags via the main menu
@@ -27,6 +29,7 @@ task all
 
 # Individual commands
 task build      # Build the project
+task test       # Run the unit tests
 task pack       # Create .pext package
 task install    # Install the package in Playnite
 task dev-install # Install directly to extensions folder for development
@@ -60,4 +63,4 @@ The extension provides several configuration options:
 
 ## License
 
-[Add your license here]
+[MIT](LICENSE)

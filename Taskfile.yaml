@@ -8,12 +8,17 @@ tasks:
   - task: restore
   - task: format
   - task: build
+  - task: test
   - task: pack
   - task: install
 
   build:
     cmds:
     - dotnet build  UpcomingGamesTagger.csproj --configuration Release
+
+  test:
+    cmds:
+    - dotnet test Tests/UpcomingGamesTagger.Tests.csproj --configuration Release
 
   format:
     cmds:
@@ -29,7 +34,7 @@ tasks:
   clean:
     cmds:
     - powershell -command "Remove-Item -Force -Recurse .\dist -ErrorAction Ignore" || true
-    - powershell -command "Remove-Item -Force -Recurse .\src\bin\ -ErrorAction Ignore" || true
+    - powershell -command "Remove-Item -Force -Recurse .\bin\, .\obj\, .\Tests\bin\, .\Tests\obj\ -ErrorAction Ignore" || true
 
   install:
     cmds:
@@ -50,6 +55,9 @@ tasks:
     cmds:
     - git checkout -b "release/v{{.VERSION}}"
     - yq -i '.Version = "{{.VERSION}}"' extension.yaml
+    # Keep the assembly version in step with extension.yaml; CI enforces this.
+    - sed -i -E "s/^(\[assembly: AssemblyVersion\(\")[^\"]+/\1{{.VERSION}}.0/" Properties/AssemblyInfo.cs
+    - sed -i -E "s/^(\[assembly: AssemblyFileVersion\(\")[^\"]+/\1{{.VERSION}}.0/" Properties/AssemblyInfo.cs
     - |
       addon_id=$(yq '.AddonId' manifest.yaml)
       addon_name="${addon_id%%_*}"
@@ -81,6 +89,6 @@ tasks:
       echo ""
       echo "Review the generated changelog in manifest.yaml"
       echo "Then commit and push:"
-      echo "  git add extension.yaml manifest.yaml"
+      echo "  git add extension.yaml manifest.yaml Properties/AssemblyInfo.cs"
       echo "  git commit -m 'Bump version to {{.VERSION}}'"
       echo "  git push -u origin release/v{{.VERSION}}"

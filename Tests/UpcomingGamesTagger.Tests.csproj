@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net462</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>UpcomingGamesTagger.Tests</RootNamespace>
+    <AssemblyName>UpcomingGamesTagger.Tests</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+    <!-- Must match the plugin project's PlayniteSDK version so the tests exercise the
+         same SDK that ships. Referenced explicitly rather than inherited because the
+         plugin sets ExcludeAssets="runtime" (Playnite supplies the DLL at run time),
+         which also withholds it from the test host. A drift between the two versions
+         fails the restore with NU1605 rather than passing silently. -->
+    <PackageReference Include="PlayniteSDK" Version="6.16.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UpcomingGamesTagger.csproj" />
+  </ItemGroup>
+
+</Project>

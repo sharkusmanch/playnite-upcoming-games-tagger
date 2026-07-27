@@ -7,7 +7,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Validate version consistency
         run: |
@@ -37,6 +37,18 @@ jobs:
             errors=$((errors + 1))
           fi
 
+          # The shipped DLL reports this version in logs and crash reports, so it has
+          # to track extension.yaml rather than drifting silently.
+          for attribute in AssemblyVersion AssemblyFileVersion; do
+            actual=$(sed -n "s/^\[assembly: ${attribute}(\"\([^\"]*\)\").*/\1/p" Properties/AssemblyInfo.cs)
+            echo "${attribute}: $actual"
+
+            if [ "$actual" != "${ext_version}.0" ]; then
+              echo "::error::${attribute} ($actual) does not match extension.yaml (expected ${ext_version}.0)"
+              errors=$((errors + 1))
+            fi
+          done
+
           if [ $errors -gt 0 ]; then
             exit 1
           fi
@@ -46,18 +58,12 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
-      - uses: robinraju/release-downloader@v1.8
-        id: download_playnite
-        with:
-          repository: "JosefNemec/Playnite"
-          latest: true
-          tarBall: false
-          zipBall: false
-          fileName: "Playnite*.zip"
-          out-file-path: ${{ runner.temp }}/playnite
-          extract: true
+      # No Playnite download here: only the release job needs Toolbox.exe to pack.
 
-      - run: |
-          dotnet build UpcomingGamesTagger.csproj -c Release
+      - name: Build
+        run: dotnet build UpcomingGamesTagger.csproj -c Release
+
+      - name: Test
+        run: dotnet test Tests/UpcomingGamesTagger.Tests.csproj -c Release
