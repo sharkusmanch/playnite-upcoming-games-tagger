@@ -9,6 +9,10 @@
 
   <PropertyGroup>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Excludes Tests/** from every default glob at once. A Compile/None Remove pair
+         is not enough: the WindowsDesktop SDK also globs **/*.xaml as Page, which would
+         markup-compile the test project's copied Localization files into this DLL. -->
+    <DefaultItemExcludes>$(DefaultItemExcludes);Tests\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>

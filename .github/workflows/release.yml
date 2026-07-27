@@ -8,7 +8,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Validate version consistency
         run: |
@@ -38,6 +38,18 @@ jobs:
             errors=$((errors + 1))
           fi
 
+          # The shipped DLL reports this version in logs and crash reports, so it has
+          # to track extension.yaml rather than drifting silently.
+          for attribute in AssemblyVersion AssemblyFileVersion; do
+            actual=$(sed -n "s/^\[assembly: ${attribute}(\"\([^\"]*\)\").*/\1/p" Properties/AssemblyInfo.cs)
+            echo "${attribute}: $actual"
+
+            if [ "$actual" != "${ext_version}.0" ]; then
+              echo "::error::${attribute} ($actual) does not match extension.yaml (expected ${ext_version}.0)"
+              errors=$((errors + 1))
+            fi
+          done
+
           if [ $errors -gt 0 ]; then
             exit 1
           fi
@@ -48,9 +60,9 @@ jobs:
     needs: validate
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
-      - uses: robinraju/release-downloader@v1.8
+      - uses: robinraju/release-downloader@v1.13
         id: download_playnite
         with:
           repository: "JosefNemec/Playnite"
@@ -63,11 +75,18 @@ jobs:
       - name: Extract Playnite
         run: 7z x ${{ runner.temp }}/playnite/*.7z -o${{ runner.temp }}/playnite
 
-      - run: |
-          dotnet build UpcomingGamesTagger.csproj -c Release
-          ${{ runner.temp }}/playnite/Toolbox.exe pack bin/Release/net462/ dist
+      - name: Build
+        run: dotnet build UpcomingGamesTagger.csproj -c Release
 
-      - uses: actions/upload-artifact@v6
+      # Gate the release on tests: this workflow is dispatched manually, so the
+      # pull_request run is no guarantee tests ever passed on this commit.
+      - name: Test
+        run: dotnet test Tests/UpcomingGamesTagger.Tests.csproj -c Release
+
+      - name: Pack
+        run: ${{ runner.temp }}/playnite/Toolbox.exe pack bin/Release/net462/ dist
+
+      - uses: actions/upload-artifact@v7
         with:
           name: artifacts
           path: |
@@ -81,16 +100,19 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
+      # yq is preinstalled on ubuntu runners, so no action (and no floating ref) needed.
       - name: Get Version
         id: version
-        uses: mikefarah/yq@master
-        with:
-          cmd: yq '.Version' extension.yaml
+        run: |
+          # Assign first: inside `echo "$(...)"` a yq failure would be masked by echo's
+          # own exit status, publishing a release tagged "v".
+          version=$(yq '.Version' extension.yaml)
+          echo "result=$version" >> "$GITHUB_OUTPUT"
 
       - name: Pull artifacts
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: artifacts
 

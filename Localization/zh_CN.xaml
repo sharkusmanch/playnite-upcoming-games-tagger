@@ -5,6 +5,8 @@
   <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">更新即将发售游戏标签</sys:String>
   <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">即将发售游戏标记器</sys:String>
 
+  <sys:String x:Key="LOCUpcomingGamesTaggerProgressUpdating">正在更新即将发售游戏标签…</sys:String>
+
   <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">已为即将发售的游戏创建 '{0}' 标签</sys:String>
   <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">已更新 '{0}' 标签: +{1} 款游戏, -{2} 款游戏</sys:String>
 

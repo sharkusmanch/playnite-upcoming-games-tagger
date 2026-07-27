@@ -1,5 +1,17 @@
 AddonId: UpcomingGamesTagger_22b532e7-0caa-4c5a-bacf-3009c4eb7eeb
 Packages:
+  - Version: 1.1.0
+    RequiredApiVersion: 6.12.0
+    ReleaseDate: 2026-07-26
+    PackageUrl: https://github.com/sharkusmanch/playnite-upcoming-games-tagger/releases/download/v1.1.0/UpcomingGamesTagger_v1.1.0.pext
+    Changelog:
+      - "Fix: games dated to only a year or a month are now tagged for the whole period instead of being missed or untagged on the 1st"
+      - "Fix: the tag is tracked by id, so renaming it moves the existing tag and a same-named tag you created yourself is never adopted or stripped"
+      - "Fix: bulk tag updates are wrapped in a buffered update to avoid excessive change events"
+      - The tag refresh no longer runs on Playnite's startup path or blocks the UI after a library update
+      - The tag is re-evaluated when the date rolls over, without needing a restart
+      - Settings changes apply immediately instead of after a restart
+      - Add unit tests, an MIT license, and assembly version validation in CI
   - Version: 1.0.1
     RequiredApiVersion: 6.12.0
     ReleaseDate: 2026-03-23

@@ -5,6 +5,8 @@
   <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">Tag für kommende Spiele aktualisieren</sys:String>
   <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">Upcoming Games Tagger</sys:String>
 
+  <sys:String x:Key="LOCUpcomingGamesTaggerProgressUpdating">Tag für kommende Spiele wird aktualisiert...</sys:String>
+
   <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">Tag '{0}' für kommende Spiele erstellt</sys:String>
   <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">Tag '{0}' aktualisiert: +{1} Spiele, -{2} Spiele</sys:String>
 

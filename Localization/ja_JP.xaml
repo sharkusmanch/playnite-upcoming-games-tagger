@@ -5,6 +5,8 @@
   <sys:String x:Key="LOCUpcomingGamesTaggerMenuUpdateTag">発売予定ゲームタグを更新</sys:String>
   <sys:String x:Key="LOCUpcomingGamesTaggerMenuSection">発売予定ゲームタガー</sys:String>
 
+  <sys:String x:Key="LOCUpcomingGamesTaggerProgressUpdating">発売予定ゲームタグを更新中...</sys:String>
+
   <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagCreated">発売予定ゲーム用に '{0}' タグを作成しました</sys:String>
   <sys:String x:Key="LOCUpcomingGamesTaggerNotifTagUpdated">'{0}' タグを更新しました: +{1} 件, -{2} 件</sys:String>
 
