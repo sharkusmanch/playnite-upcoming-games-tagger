@@ -16,7 +16,7 @@
          plugin sets ExcludeAssets="runtime" (Playnite supplies the DLL at run time),
          which also withholds it from the test host. A drift between the two versions
          fails the restore with NU1605 rather than passing silently. -->
-    <PackageReference Include="PlayniteSDK" Version="6.16.0" />
+    <PackageReference Include="PlayniteSDK" Version="6.17.0" />
   </ItemGroup>
 
   <ItemGroup>
